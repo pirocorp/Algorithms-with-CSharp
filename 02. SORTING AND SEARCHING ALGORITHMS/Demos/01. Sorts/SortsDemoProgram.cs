@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public static class Program
+    public static class SortsDemoProgram
     {
         public static void Main()
         {
@@ -14,6 +14,8 @@
 
             //Sorts<int>.SelectionSort(collection);
             //Sorts<int>.BubbleSort(collection);
+            //Sorts<int>.InsertionSort(collection);
+            //Sorts<int>.MergeSort(collection);
 
             Console.WriteLine(string.Join(", ", collection));
         }
