@@ -51,10 +51,7 @@
         {
             if (n == 1)
             {
-                var disk = getFromSource();
-                addToDestination(disk);
-                this._step++;
-                this.PrintRods();
+                this.MoveDisk(getFromSource, addToDestination);
             }
             else
             {
@@ -62,15 +59,20 @@
                     getFromDestination, addToDestination,
                     getFromSpare, addToSpare);
 
-                var disk = getFromSource();
-                addToDestination(disk);
-                this._step++;
-                this.PrintRods();
+                this.MoveDisk(getFromSource, addToDestination);
 
                 this.Move(n - 1, getFromSpare, addToSpare,
                     getFromSource, addToSource,
                     getFromDestination, addToDestination);
             }
+        }
+
+        private void MoveDisk(Func<int> getFromSource, Action<int> addToDestination)
+        {
+            var disk = getFromSource();
+            addToDestination(disk);
+            this._step++;
+            this.PrintRods();
         }
 
         private void PrintRods()
