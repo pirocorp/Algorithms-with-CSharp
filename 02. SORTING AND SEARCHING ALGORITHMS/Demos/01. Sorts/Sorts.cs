@@ -5,6 +5,31 @@
 
     public static class Sorts<T> where T : IComparable
     {
+        public static void BubbleSort(IList<T> collection)
+        {
+            var swapped = true;
+            var end = collection.Count;
+
+            while (swapped)
+            {
+                swapped = false;
+
+                for (var index = 1; index < end; index++)
+                {
+                    var prev = collection[index - 1];
+                    var current = collection[index];
+
+                    if (ReOrder(prev, current))
+                    {
+                        Swap(collection, index - 1, index);
+                        swapped = true;
+                    }
+                }
+
+                end--;
+            }
+        }
+
         public static void SelectionSort(IList<T> collection)
         {
             //Worst Case: n^2, Average Case: n^2, Best Case: n^2

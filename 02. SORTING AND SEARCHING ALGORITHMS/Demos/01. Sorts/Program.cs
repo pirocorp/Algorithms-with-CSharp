@@ -13,6 +13,7 @@
             };
 
             //Sorts<int>.SelectionSort(collection);
+            //Sorts<int>.BubbleSort(collection);
 
             Console.WriteLine(string.Join(", ", collection));
         }
