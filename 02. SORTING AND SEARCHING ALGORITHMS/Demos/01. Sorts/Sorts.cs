@@ -8,6 +8,38 @@
         private static IList<T> _collection;
         private static T[] _tempCollection;
 
+        public static void QuickSort(IList<T> collection)
+        {
+            //Worst Case: n^2, Average Case: n*log(n), Best Case: n*log(n)
+            _collection = collection;
+            QuickSort(0, _collection.Count - 1);
+        }
+
+        private static void QuickSort(int from, int to)
+        {
+            if (from >= to)
+            {
+                return;
+            }
+
+            var value = _collection[to];
+            var counter = from;
+
+            for (var i = from; i < to; i++)
+            {
+                if (Less(value, _collection[i]))
+                {
+                    Swap(_collection, i, counter);
+                    counter++;
+                }
+            }
+
+            Swap(_collection, counter, to);
+
+            QuickSort(from, counter - 1);
+            QuickSort(counter + 1, to);
+        }
+
         public static void MergeSort(IList<T> collection)
         {
             //Worst Case: n*log(n), Average Case: n*log(n), Best Case: n*log(n)

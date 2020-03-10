@@ -16,6 +16,7 @@
             //Sorts<int>.BubbleSort(collection);
             //Sorts<int>.InsertionSort(collection);
             //Sorts<int>.MergeSort(collection);
+            //Sorts<int>.QuickSort(collection);
 
             Console.WriteLine(string.Join(", ", collection));
         }
