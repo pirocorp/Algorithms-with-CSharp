@@ -6,6 +6,10 @@
     public static class ConnectedAreasInMatrixProgram
     {
         private static SortedSet<Area> _areas;
+        private static char[,] _matrix;
+
+        private const char WALL = '*';
+        private const char VISITED = 'v';
 
         public static void Main()
         {
@@ -14,110 +18,82 @@
             var rows = int.Parse(Console.ReadLine());
             var cols = int.Parse(Console.ReadLine());
 
-            var matrix = new char[rows, cols];
-            InitializeMatrix(rows, cols, matrix);
+            _matrix = new char[rows, cols];
+            InitializeMatrix(rows, cols);
 
-            TraverseMatrix(matrix);
+            TraverseMatrix();
 
+            PrintAreas();
+        }
+
+        private static void TraverseMatrix()
+        {
+            for (var row = 0; row < _matrix.GetLength(0); row++)
+            {
+                for (var col = 0; col < _matrix.GetLength(1); col++)
+                {
+                    MapArea(row, col);
+                }
+            }
+        }
+
+        private static void MapArea(int row, int col)
+        {
+            if (_matrix[row, col] == WALL ||
+                _matrix[row, col] == VISITED)
+            {
+                return;
+            }
+
+            var size = 0;
+            CalculateAreaSize(row, col, ref size);
+            var area = new Area(row, col, size);
+            _areas.Add(area);
+        }
+
+        private static void CalculateAreaSize(int row, int col, ref int size)
+        {
+            if (!IsInBoundaries(row, col) ||
+                _matrix[row, col] == VISITED ||
+                _matrix[row, col] == WALL)
+            {
+                return;
+            }
+
+            size++;
+            _matrix[row, col] = VISITED;
+
+            //Go Left
+            CalculateAreaSize(row, col - 1, ref size);
+            //Go Right
+            CalculateAreaSize(row, col + 1, ref size);
+            //Go Up
+            CalculateAreaSize(row + 1, col, ref size);
+            //Go Down
+            CalculateAreaSize(row - 1, col, ref size);
+        }
+
+        private static bool IsInBoundaries(int row, int col)
+        {
+            return row >= 0 &&
+                   row < _matrix.GetLength(0) &&
+                   col >= 0 &&
+                   col < _matrix.GetLength(1);
+
+        }
+
+        private static void PrintAreas()
+        {
             Console.WriteLine($"Total areas found: {_areas.Count}");
             var count = 1;
 
             foreach (var area in _areas)
             {
-                Console.WriteLine($"Area #{count++} at ({area.PositionY}, {area.PositionX}), size: {area.Size}");
+                Console.WriteLine($"Area #{count++} at ({area.Row}, {area.Col}), size: {area.Size}");
             }
         }
 
-        private static void TraverseMatrix(char[,] matrix)
-        {
-            for (var rowIndex = 0; rowIndex < matrix.GetLength(0); rowIndex++)
-            {
-                for (var colIndex = 0; colIndex < matrix.GetLength(1); colIndex++)
-                {
-                    var cell = matrix[rowIndex, colIndex];
-
-                    if (cell != '*' && 
-                        cell != 'v')
-                    {
-                        var size = MapArea(rowIndex, colIndex, matrix);
-                        var area = new Area(colIndex, rowIndex, size);
-                        _areas.Add(area);
-                    }
-                }
-            }
-        }
-
-        private static int MapArea(int rowIndex, int colIndex, char[,] matrix)
-        {
-            var size = 0;
-            var currentCol = colIndex;
-            var currentRow = rowIndex;
-
-            var minCol = colIndex;
-            var maxCol = colIndex;
-
-            while (currentRow < matrix.GetLength(0))
-            {
-                var x = true;
-
-                for (var i = minCol; i <= maxCol; i++)
-                {
-                    if (matrix[currentRow, i] != '*' &&
-                        matrix[currentRow, i] != 'v')
-                    {
-                        currentCol = i;
-                        x = false;
-                        break;
-                    }
-                }
-
-                if (x)
-                {
-                    break;
-                }
-
-                maxCol = CheckRight(currentRow, matrix, currentCol, ref size);
-                minCol = CheckLeft(currentRow, matrix, currentCol - 1, ref size);
-                currentRow++;
-            }
-
-            return size;
-        }
-
-        private static int CheckLeft(int rowIndex, char[,] matrix, int currentCol, ref int size)
-        {
-            if (currentCol < 0)
-            {
-                return 0;
-            }
-
-            while (currentCol >= 0 &&
-                   matrix[rowIndex, currentCol] != '*' &&
-                   matrix[rowIndex, currentCol] != 'v')
-            {
-                size++;
-                matrix[rowIndex, currentCol] = 'v';
-                currentCol--;
-            }
-
-            return ++currentCol;
-        }
-
-        private static int CheckRight(int rowIndex, char[,] matrix, int currentCol, ref int size)
-        {
-            while (currentCol < matrix.GetLength(1) &&
-                   matrix[rowIndex, currentCol] != '*' &&
-                   matrix[rowIndex, currentCol] != 'v')
-            {
-                size++;
-                matrix[rowIndex, currentCol] = 'v';
-                currentCol++;
-            }
-
-            return --currentCol;
-        }
-
-        private static void InitializeMatrix(int rows, int cols, char[,] matrix)
+        private static void InitializeMatrix(int rows, int cols)
         {
             for (var rowIndex = 0; rowIndex < rows; rowIndex++)
             {
@@ -125,7 +101,7 @@
 
                 for (var colIndex = 0; colIndex < cols; colIndex++)
                 {
-                    matrix[rowIndex, colIndex] = input[colIndex];
+                    _matrix[rowIndex, colIndex] = input[colIndex];
                 }
             }
         }

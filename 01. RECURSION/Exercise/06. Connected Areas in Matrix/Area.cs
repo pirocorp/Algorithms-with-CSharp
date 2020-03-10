@@ -4,16 +4,16 @@
 
     public class Area : IComparable<Area>
     {
-        public Area(int positionX, int positionY, int size)
+        public Area(int row, int col, int size)
         {
-            this.PositionX = positionX;
-            this.PositionY = positionY;
+            this.Row = row;
+            this.Col = col;
             this.Size = size;
         }
 
-        public int PositionX { get; private set; }
+        public int Row { get; private set; }
 
-        public int PositionY { get; private set; }
+        public int Col { get; private set; }
 
         public int Size { get; private set; }
 
@@ -23,12 +23,12 @@
 
             if (cmp == 0)
             {
-                cmp = this.PositionY.CompareTo(other.PositionY);
+                cmp = this.Row.CompareTo(other.Row);
             }
 
             if (cmp == 0)
             {
-                cmp = this.PositionX.CompareTo(other.PositionX);
+                cmp = this.Col.CompareTo(other.Col);
             }
 
             return cmp;
