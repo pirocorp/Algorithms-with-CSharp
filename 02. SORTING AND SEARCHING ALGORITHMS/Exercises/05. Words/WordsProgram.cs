@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public static class WordsProgram
     {
@@ -11,6 +12,23 @@
         public static void Main()
         {
             _symbols = Console.ReadLine()?.ToCharArray();
+
+            #region Hack
+
+            if (_symbols.Length == _symbols.Distinct().Count())
+            {
+                var result = 1;
+
+                for (var i = 2; i <= _symbols.Length; i++)
+                {
+                    result *= i;
+                }
+
+                Console.WriteLine(result);
+                return;
+            }
+
+            #endregion
 
             GeneratePermutations(0);
 
