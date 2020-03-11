@@ -8,6 +8,48 @@
         private static IList<T> _collection;
         private static T[] _tempCollection;
 
+        public static void HeapSort(IList<T> collection)
+        {
+            //Worst Case: n*log(n), Average Case: n*log(n), Best Case: n*log(n)
+            var length = collection.Count;
+            for (int i = length / 2 - 1; i >= 0; i--)
+            {
+                Heapify(collection, length, i);
+            }
+            for (int i = length - 1; i >= 0; i--)
+            {
+                var temp = collection[0];
+                collection[0] = collection[i];
+                collection[i] = temp;
+                Heapify(collection, i, 0);
+            }
+        }
+
+        private static void Heapify(IList<T> collection, int length, int i)
+        {
+            var largest = i;
+            var left = 2 * i + 1;
+            var right = 2 * i + 2;
+
+            if (left < length && Less(collection[left], collection[largest]))
+            {
+                largest = left;
+            }
+
+            if (right < length && Less(collection[right], collection[largest]))
+            {
+                largest = right;
+            }
+
+            if (largest != i)
+            {
+                var swap = collection[i];
+                collection[i] = collection[largest];
+                collection[largest] = swap;
+                Heapify(collection, length, largest);
+            }
+        }
+
         public static void QuickSort(IList<T> collection)
         {
             //Worst Case: n^2, Average Case: n*log(n), Best Case: n*log(n)
