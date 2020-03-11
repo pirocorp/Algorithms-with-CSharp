@@ -18,7 +18,6 @@
             //Sorts<int>.MergeSort(collection);
             //Sorts<int>.QuickSort(collection);
             //Sorts<int>.HeapSort(collection);
-            Sorts<int>.InPlaceMergeSort(collection);
 
             Console.WriteLine(string.Join(", ", collection));
         }
