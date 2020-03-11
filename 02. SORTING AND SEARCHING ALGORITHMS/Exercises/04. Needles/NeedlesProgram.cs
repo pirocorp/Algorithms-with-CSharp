@@ -8,33 +8,48 @@
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
+            var input = ReadArrayOfNumbersFromConsole();
+            var elementsCount = input[0];
+            var needlesCount = input[1];
             var indexes = new List<int>();
 
             var inputArr = ReadArrayOfNumbersFromConsole();
             var needles = ReadArrayOfNumbersFromConsole();
 
-            for (var i = 0; i < needles.Length; i++)
+            foreach (var needle in needles)
             {
-                var currentNeedle = needles[i];
+                var found = false;
 
-                var index = 0;
-                var needleIndex = -1;
-
-                while (index < inputArr.Length && inputArr[index] < currentNeedle)
+                for (var index = 0; index < elementsCount; index++)
                 {
-                    if (inputArr[index] != 0)
+                    if (inputArr[index] >= needle)
                     {
-                        needleIndex = index;
+                        found = true;
+                        indexes.Add(GetNonZeroIndex(inputArr, index - 1));
+                        break;
                     }
-
-                    index++;
                 }
 
-                indexes.Add(needleIndex + 1);
+                if (!found)
+                {
+                    indexes.Add(GetNonZeroIndex(inputArr, elementsCount - 1));
+                }
             }
 
             Console.WriteLine(string.Join(" ", indexes));
+        }
+
+        private static int GetNonZeroIndex(int[] inputArr, int index)
+        {
+            for (var i = index; i >= 0; i--)
+            {
+                if (inputArr[i] != 0)
+                {
+                    return i + 1;
+                }
+            }
+
+            return 0;
         }
 
         private static int[] ReadArrayOfNumbersFromConsole()
