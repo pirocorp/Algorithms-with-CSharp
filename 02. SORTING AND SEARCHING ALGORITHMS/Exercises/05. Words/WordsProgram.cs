@@ -15,7 +15,8 @@
 
             #region Hack
 
-            if (_symbols.Length == _symbols.Distinct().Count())
+            if (_symbols != null && 
+                _symbols.Length == _symbols.Distinct().Count())
             {
                 var result = 1;
 
