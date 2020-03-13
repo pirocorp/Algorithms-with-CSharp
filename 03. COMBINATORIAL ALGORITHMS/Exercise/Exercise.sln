@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Iterative Permutations without Repetitions", "01. Iterative Permutations without Repetitions\01. Iterative Permutations without Repetitions.csproj", "{262AB786-2E4B-40BD-AF58-5E04ACDD7AC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01. Iterative Permutations without Repetitions", "01. Iterative Permutations without Repetitions\01. Iterative Permutations without Repetitions.csproj", "{262AB786-2E4B-40BD-AF58-5E04ACDD7AC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Iterative Combinations without Repetition", "02. Iterative Combinations without Repetition\02. Iterative Combinations without Repetition.csproj", "{DFFDDCBA-05CD-426B-B0E9-2F849B049D5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02. Iterative Combinations without Repetition", "02. Iterative Combinations without Repetition\02. Iterative Combinations without Repetition.csproj", "{DFFDDCBA-05CD-426B-B0E9-2F849B049D5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Iterative Permutations with Repetition", "03. Iterative Permutations with Repetition\03. Iterative Permutations with Repetition.csproj", "{E23F3150-D704-4CA1-B7B9-CDACF403D07F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. Iterative Permutations with Repetition", "03. Iterative Permutations with Repetition\03. Iterative Permutations with Repetition.csproj", "{E23F3150-D704-4CA1-B7B9-CDACF403D07F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Snakes", "04. Snakes\04. Snakes.csproj", "{DA6D71A2-05F7-4962-B9DF-6E17BD3B67DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04. Snakes", "04. Snakes\04. Snakes.csproj", "{DA6D71A2-05F7-4962-B9DF-6E17BD3B67DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Cubes", "05. Cubes\05. Cubes.csproj", "{12488369-383A-4C1F-B065-B0D45812B1FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05. Cubes", "05. Cubes\05. Cubes.csproj", "{12488369-383A-4C1F-B065-B0D45812B1FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. N Choose K Memoization", "06. NChooseKMemoization\06. N Choose K Memoization.csproj", "{BE62132E-D9B6-4D27-8821-C271171E27D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{12488369-383A-4C1F-B065-B0D45812B1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12488369-383A-4C1F-B065-B0D45812B1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12488369-383A-4C1F-B065-B0D45812B1FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE62132E-D9B6-4D27-8821-C271171E27D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE62132E-D9B6-4D27-8821-C271171E27D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE62132E-D9B6-4D27-8821-C271171E27D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE62132E-D9B6-4D27-8821-C271171E27D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
