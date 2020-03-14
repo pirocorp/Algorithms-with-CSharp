@@ -8,19 +8,25 @@
     {
         public static void Main()
         {
+            SideEffectConceptDemo();
             //DemoConcept();
             //PairDemoConcept();
             //OptionalDemoConcept();
-            RangeDemoConcept();
+            //RangeDemoConcept();
         }
 
-        private static void RangeDemoConcept()
+        private static void SideEffectConceptDemo()
         {
-            var start = new Lazy<int>(() => 1);
-            var end = new Lazy<int>(() => 10);
-            var list = Range.FromTo(start, end);
-
-
+            var _42 = new Lazy<int>(() => 42);
+            SideEffect.ReadNumber()
+                .Bind(x => SideEffect.PrintNumber(_42)
+                    .Bind(v => SideEffect.ReadNumber())
+                        .Bind(y =>
+                        {
+                            var sum = new Lazy<int>(() => y.Value + x.Value);
+                            return SideEffect.PrintNumber(sum);
+                        }))
+                .Execute();
         }
 
         static Optional<int> Divide(Lazy<int> x, Lazy<int> y)
@@ -31,6 +37,13 @@
             }
 
             return new Optional<int>(new Lazy<int>(() => x.Value / y.Value));
+        }
+        
+        private static void RangeDemoConcept()
+        {
+            var start = new Lazy<int>(() => 1);
+            var end = new Lazy<int>(() => 10);
+            var list = Range.FromTo(start, end);
         }
 
         private static void OptionalDemoConcept()
