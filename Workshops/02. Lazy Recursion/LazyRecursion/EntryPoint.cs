@@ -8,11 +8,32 @@
     {
         public static void Main()
         {
-            SideEffectConceptDemo();
-            //DemoConcept();
+            //SideEffectConceptDemo();
+            DemoConcept();
             //PairDemoConcept();
             //OptionalDemoConcept();
             //RangeDemoConcept();
+            //LazyDemoConcept();
+        }
+
+        private static void DemoConcept()
+        {
+            throw new NotImplementedException();
+        }
+
+        static Optional<int> Divide(Lazy<int> x, Lazy<int> y)
+        {
+            if (y.Value == 0)
+            {
+                return new Optional<int>();
+            }
+
+            return new Optional<int>(new Lazy<int>(() => x.Value / y.Value));
+        }
+
+        static Lazy<int> MakeNumber(int number)
+        {
+            return new Lazy<int>(() => number);
         }
 
         private static void SideEffectConceptDemo()
@@ -29,21 +50,13 @@
                 .Execute();
         }
 
-        static Optional<int> Divide(Lazy<int> x, Lazy<int> y)
-        {
-            if (y.Value == 0)
-            {
-                return new Optional<int>();
-            }
-
-            return new Optional<int>(new Lazy<int>(() => x.Value / y.Value));
-        }
         
         private static void RangeDemoConcept()
         {
-            var start = new Lazy<int>(() => 1);
-            var end = new Lazy<int>(() => 10);
-            var list = Range.FromTo(start, end);
+            new SideEffect<int>(() => 
+                    Range.FromTo(MakeNumber(0), MakeNumber(5)).Value.Length())
+                .Bind(SideEffect.PrintNumber)
+                .Execute();
         }
 
         private static void OptionalDemoConcept()
@@ -83,7 +96,7 @@
             });
         }
 
-        private static void DemoConcept()
+        private static void LazyDemoConcept()
         {
             var x = new Lazy<int>(() => int.Parse(Console.ReadLine()));
             var y = new Lazy<int>(() => int.Parse(Console.ReadLine()));
