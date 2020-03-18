@@ -64,6 +64,7 @@
         public static void Main()
         {
             var n = 40;
+
             _numbers = new long[n + 1];
             Console.WriteLine(SimpleRecursionFib(n));
             Console.WriteLine($"{_count:##,###}");
