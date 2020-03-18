@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Fibonacci", "01. Fibonacci\01. Fibonacci.csproj", "{FA073ADB-FBBC-4DF7-8BB5-33A4F6B9416B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Longest Increasing Subsequence", "02. Longest Increasing Subsequence\02. Longest Increasing Subsequence.csproj", "{92E8CCBE-3B04-41B2-AED5-78C4B453B4AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Move Down Right", "03. Move Down Right\03. Move Down Right.csproj", "{A562DFB5-0A7D-4EE5-B71A-0196B50D4648}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Rod Cutting", "04. Rod Cutting\04. Rod Cutting.csproj", "{B3BBF1A8-AC74-4697-8E6C-7E0648ECEFDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{FA073ADB-FBBC-4DF7-8BB5-33A4F6B9416B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA073ADB-FBBC-4DF7-8BB5-33A4F6B9416B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA073ADB-FBBC-4DF7-8BB5-33A4F6B9416B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92E8CCBE-3B04-41B2-AED5-78C4B453B4AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E8CCBE-3B04-41B2-AED5-78C4B453B4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E8CCBE-3B04-41B2-AED5-78C4B453B4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92E8CCBE-3B04-41B2-AED5-78C4B453B4AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A562DFB5-0A7D-4EE5-B71A-0196B50D4648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A562DFB5-0A7D-4EE5-B71A-0196B50D4648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A562DFB5-0A7D-4EE5-B71A-0196B50D4648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A562DFB5-0A7D-4EE5-B71A-0196B50D4648}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3BBF1A8-AC74-4697-8E6C-7E0648ECEFDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BBF1A8-AC74-4697-8E6C-7E0648ECEFDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BBF1A8-AC74-4697-8E6C-7E0648ECEFDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BBF1A8-AC74-4697-8E6C-7E0648ECEFDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
