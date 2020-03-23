@@ -13,10 +13,10 @@
             string second = Console.ReadLine(); //cols
 
             CalculateLcs(first, second);
-            PrintMatrix(_lcs);
+            //PrintMatrix(_lcs);
             List<char> result = ReconstructSolution(first, second);
 
-            Console.WriteLine(new string(result.ToArray()));
+            Console.WriteLine(result.ToArray().Length);
         }
 
         private static List<char> ReconstructSolution(string first, string second)
