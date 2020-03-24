@@ -51,7 +51,7 @@
                 for (var col = 1; col <= secondLen; col++)
                 {
                     var delete = _costs[row - 1, col] + _costDelete;
-                    var replace = _costs[row - 1, col - 1] + GetCostReplace(row -1, col - 1);
+                    var replace = _costs[row - 1, col - 1] + GetCostReplace(row - 1, col - 1);
                     var insert = _costs[row, col - 1] + _costInsert;
 
                     _costs[row, col] = Math.Min(Math.Min(delete, insert), replace);
