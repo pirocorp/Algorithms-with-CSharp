@@ -48,7 +48,7 @@
                 {0, 1, 1, 1, 0, 0, 0}, // node 5
                 {1, 1, 0, 0, 1, 0, 0}, // node 6
             };
-            // Add an edge { 3  6 }
+            // Add an edge { 3 -> 6 }
             graph[3, 6] = 1;
 
             // List the children of node #1
