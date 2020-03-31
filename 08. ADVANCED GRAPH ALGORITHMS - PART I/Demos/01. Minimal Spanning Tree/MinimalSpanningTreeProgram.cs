@@ -46,6 +46,16 @@
             return node;
         }
 
+        private static int FindRootFast(int node)
+        {
+            if (_parents[node] == node)
+            {
+                return node;
+            }
+
+            return _parents[node] = FindRootFast(_parents[node]);
+        }
+
         private static void Kruskal()
         {
             var edges = _graph
@@ -60,8 +70,8 @@
                 var firstNode = edge.First;
                 var secondNode = edge.Second;
 
-                var firstRoot = FindRoot(firstNode);
-                var secondRoot = FindRoot(secondNode);
+                var firstRoot = FindRootFast(firstNode);
+                var secondRoot = FindRootFast(secondNode);
 
                 if (firstRoot != secondRoot)
                 {
