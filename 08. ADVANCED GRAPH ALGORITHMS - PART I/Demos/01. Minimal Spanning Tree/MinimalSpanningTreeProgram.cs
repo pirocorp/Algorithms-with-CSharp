@@ -183,7 +183,7 @@
             };
             KruskalsAlgorithm();
             Console.WriteLine();
-            PrimsAlgorithm();
+            PrimsAlgorithm(); 
         }
     }
 }
