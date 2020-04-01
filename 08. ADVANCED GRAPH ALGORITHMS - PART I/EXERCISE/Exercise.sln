@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Cable Network", "01. Cable Network\01. Cable Network.csproj", "{43AEB403-4213-4DE9-98CC-D86121AD3A45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Modified Kruskal Algorithm", "02. Modified Kruskal Algorithm\02. Modified Kruskal Algorithm.csproj", "{F2A4B277-4326-4C56-9F34-894ADD321CBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Most Reliable Path", "03. Most Reliable Path\03. Most Reliable Path.csproj", "{82AF1397-C1BE-4433-B327-69880DBC6952}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{43AEB403-4213-4DE9-98CC-D86121AD3A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43AEB403-4213-4DE9-98CC-D86121AD3A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43AEB403-4213-4DE9-98CC-D86121AD3A45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2A4B277-4326-4C56-9F34-894ADD321CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2A4B277-4326-4C56-9F34-894ADD321CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2A4B277-4326-4C56-9F34-894ADD321CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2A4B277-4326-4C56-9F34-894ADD321CBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82AF1397-C1BE-4433-B327-69880DBC6952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82AF1397-C1BE-4433-B327-69880DBC6952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82AF1397-C1BE-4433-B327-69880DBC6952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82AF1397-C1BE-4433-B327-69880DBC6952}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
