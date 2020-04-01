@@ -26,6 +26,7 @@ public class DijkstraMain
         PrintPath(graph, 0, 10);
         PrintPath(graph, 0, 11);
         PrintPath(graph, 0, 1);
+        PrintPath(graph, 0, 7);
     }
 
     public static void PrintPath(int[,] graph, int sourceNode, int destinationNode)
