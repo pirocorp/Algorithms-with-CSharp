@@ -6,17 +6,20 @@
 
     public static class ModifiedKruskalAlgorithmProgram
     {
-        public static void Main()
+        private static List<Edge> _edges;
+        private static int[] _parents;
+
+        private static void ReadInput()
         {
             var nodesCount = int.Parse(Console.ReadLine().Split(new[] { ' ' })[1]);
             var edgesCount = int.Parse(Console.ReadLine().Split(new[] { ' ' })[1]);
 
-            var edges = new List<Edge>();
-            var parents = new int[nodesCount];
+            _edges = new List<Edge>();
+            _parents = new int[nodesCount];
 
-            for (var i = 0; i < parents.Length; i++)
+            for (var i = 0; i < _parents.Length; i++)
             {
-                parents[i] = i;
+                _parents[i] = i;
             }
 
             for (var i = 0; i < edgesCount; i++)
@@ -30,36 +33,48 @@
 
                 var weight = int.Parse(tokens[2]);
                 var newEdge = new Edge(node1, node2, weight);
-                edges.Add(newEdge);
+                _edges.Add(newEdge);
             }
 
-            edges = edges
+            _edges = _edges
                 .OrderBy(x => x.Weight)
                 .ToList();
+        }
 
+        private static List<Edge> ModifiedKruskalAlgorithm()
+        {
             var result = new List<Edge>();
 
-            for (var i = 0; i < edges.Count; i++)
+            for (var i = 0; i < _edges.Count; i++)
             {
-                var currentEdge = edges[i];
+                var currentEdge = _edges[i];
 
-                var firstRoot = parents[currentEdge.First];
-                var secondRoot = parents[currentEdge.Second];
+                var firstRoot = _parents[currentEdge.First];
+                var secondRoot = _parents[currentEdge.Second];
 
                 if (firstRoot != secondRoot)
                 {
-                    result.Add(edges[i]);
-                    parents[currentEdge.Second] = firstRoot;
+                    result.Add(_edges[i]);
+                    _parents[currentEdge.Second] = firstRoot;
 
-                    for (int j = 0; j < parents.Length; j++)
+                    for (int j = 0; j < _parents.Length; j++)
                     {
-                        if (parents[j] == secondRoot)
+                        if (_parents[j] == secondRoot)
                         {
-                            parents[j] = firstRoot;
+                            _parents[j] = firstRoot;
                         }
                     }
                 }
             }
+
+            return result;
+        }
+
+        public static void Main()
+        {
+            ReadInput();
+
+            var result = ModifiedKruskalAlgorithm();
 
             Console.WriteLine($"Minimum spanning forest weight: {result.Sum(x => x.Weight)}");
 

@@ -6,19 +6,23 @@
 
     public static class CableNetworkProgram
     {
-        public static void Main()
+        private static int _budget;
+        private static List<Edge> _edges;
+        private static HashSet<int> _network;
+
+        private static void ReadInput()
         {
-            var budget = int.Parse(Console.ReadLine().Split(new []{' '})[1]);
+            _budget = int.Parse(Console.ReadLine().Split(new[] { ' ' })[1]);
             var nodesCount = int.Parse(Console.ReadLine().Split(new[] { ' ' })[1]);
             var edgesCount = int.Parse(Console.ReadLine().Split(new[] { ' ' })[1]);
 
-            var edges = new List<Edge>();
-            var network = new HashSet<int>();
+            _edges = new List<Edge>();
+            _network = new HashSet<int>();
 
             for (var i = 0; i < edgesCount; i++)
             {
                 var tokens = Console.ReadLine()
-                    .Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
+                    .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .ToArray();
 
                 var node1 = int.Parse(tokens[0]);
@@ -26,43 +30,49 @@
 
                 if (tokens.Length == 4)
                 {
-                    network.Add(node1);
-                    network.Add(node2);
+                    _network.Add(node1);
+                    _network.Add(node2);
                 }
                 else
                 {
                     var weight = int.Parse(tokens[2]);
                     var newEdge = new Edge(node1, node2, weight);
-                    edges.Add(newEdge);
+                    _edges.Add(newEdge);
                 }
             }
+        }
 
+        private static int CalculateBudget()
+        {
             var total = 0;
 
-            while (budget != 0)
+            while (_budget != 0)
             {
-                var nextPossibleEdge = edges
-                    .Where(x => network.Contains(x.First) ^ network.Contains(x.Second))
+                var nextPossibleEdge = _edges
+                    .Where(x => _network.Contains(x.First) ^ _network.Contains(x.Second))
                     .OrderBy(x => x.Weight)
                     .FirstOrDefault();
 
-                if (nextPossibleEdge == null)
-                {
-                    break;
-                }
-
-                if (budget < nextPossibleEdge.Weight)
+                if (nextPossibleEdge == null 
+                    || _budget < nextPossibleEdge.Weight)
                 {
                     break;
                 }
 
                 total += nextPossibleEdge.Weight;
-                budget -= nextPossibleEdge.Weight;
+                _budget -= nextPossibleEdge.Weight;
 
-                network.Add(nextPossibleEdge.First);
-                network.Add(nextPossibleEdge.Second);
+                _network.Add(nextPossibleEdge.First);
+                _network.Add(nextPossibleEdge.Second);
             }
 
+            return total;
+        }
+
+        public static void Main()
+        {
+            ReadInput();
+            var total = CalculateBudget();
             Console.WriteLine($"Budget used: {total}");
         }
     }
