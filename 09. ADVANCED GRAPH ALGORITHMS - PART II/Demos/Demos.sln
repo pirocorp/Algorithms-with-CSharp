@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.  Strongly Connected Components", "01.  Strongly Connected Components\01.  Strongly Connected Components.csproj", "{B7AD6C9D-19CF-4DCC-8EBE-B9141489C263}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Bi Connectivity", "02. Bi Connectivity\02. Bi Connectivity.csproj", "{18B27766-940D-4C2D-A863-3F5351ECC419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Max Flow", "03. Max Flow\03. Max Flow.csproj", "{FB2FA15E-8F55-46DC-B2B9-3449EF2AEB85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7AD6C9D-19CF-4DCC-8EBE-B9141489C263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7AD6C9D-19CF-4DCC-8EBE-B9141489C263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7AD6C9D-19CF-4DCC-8EBE-B9141489C263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7AD6C9D-19CF-4DCC-8EBE-B9141489C263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18B27766-940D-4C2D-A863-3F5351ECC419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18B27766-940D-4C2D-A863-3F5351ECC419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18B27766-940D-4C2D-A863-3F5351ECC419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18B27766-940D-4C2D-A863-3F5351ECC419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB2FA15E-8F55-46DC-B2B9-3449EF2AEB85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2FA15E-8F55-46DC-B2B9-3449EF2AEB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2FA15E-8F55-46DC-B2B9-3449EF2AEB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2FA15E-8F55-46DC-B2B9-3449EF2AEB85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10E0AF78-E552-4AC2-95D7-A9DF3C125199}
+	EndGlobalSection
+EndGlobal
