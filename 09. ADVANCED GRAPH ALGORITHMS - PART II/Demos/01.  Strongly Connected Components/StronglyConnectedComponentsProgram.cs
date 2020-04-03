@@ -85,6 +85,7 @@
 
             BuildReverseGraph();
 
+			//Build Topological sort of Strongly connected Components
             for (var node = 0; node < _graph.Length; node++)
             {
                 if (!_visited[node])
@@ -96,6 +97,7 @@
             _stronglyConnectedComponents = new List<List<int>>();
             _visited = new bool[_graph.Length];
 
+			//Map each strongly connected component
             while (_topologicalOrder.Count > 0)
             {
                 var node = _topologicalOrder.Pop();

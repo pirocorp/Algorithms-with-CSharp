@@ -6,7 +6,7 @@
 
     public static class MaxFlowProgram
     {
-        private static readonly int[][]  _graph = new int[][]
+        private static int[][] _graph = new int[][]
         {
             new int[] { 0, 10, 10, 0, 0, 0 },
             new int[] { 0, 0, 2, 4, 8, 0},
@@ -94,6 +94,18 @@
 
         public static void Main()
         {
+            _graph = new int[][]
+            {
+                new int[]{ 0, 1, 1, 1, 0, 0, 0, 0 },
+                new int[]{ 0, 0, 0, 0, 1, 0, 1, 0 },
+                new int[]{ 0, 0, 0, 0, 0, 1, 1, 0 },
+                new int[]{ 0, 0, 0, 0, 1, 1, 0, 0 },
+                new int[]{ 0, 0, 0, 0, 0, 0, 0, 1 },
+                new int[]{ 0, 0, 0, 0, 0, 0, 0, 1 },
+                new int[]{ 0, 0, 0, 0, 0, 0, 0, 1 },
+                new int[]{ 0, 0, 0, 0, 0, 0, 0, 0 },
+            };
+
             var maxFlow = FindMaxFlow();
             Console.WriteLine($"Max flow = {maxFlow}");
         }
