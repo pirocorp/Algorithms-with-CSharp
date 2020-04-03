@@ -115,7 +115,7 @@
             return path;
         }
 
-        public static void Main()
+        public static void Main() 
         {
             ReadInput();
             CalculateDistancesDijkstra();
