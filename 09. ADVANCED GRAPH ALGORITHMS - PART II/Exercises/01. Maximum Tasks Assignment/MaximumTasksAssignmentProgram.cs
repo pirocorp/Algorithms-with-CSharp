@@ -141,13 +141,18 @@
             return result;
         }
 
-        public static void Main()
+        private static void FirstSolution()
         {
             ReadInput();
             MaxFlow();
 
             var result = ReconstructSolution();
             Console.WriteLine(string.Join(Environment.NewLine, result));
+        }
+
+        public static void Main()
+        {
+            FirstSolution();
         }
     }
 }
