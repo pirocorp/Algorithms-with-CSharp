@@ -67,18 +67,13 @@
                             var edge = _biConnected.Peek();
                             _components.Add(new List<int>());
                             _components[_components.Count - 1].Add(edge.Key);
-                            //Console.Write($"{{{edge.Key}");
 
                             do
                             {
-                                //Console.Write($", ");
                                 edge = _biConnected.Pop();
                                 _components[_components.Count - 1].Add(edge.Value);
-                                //Console.Write($"{edge.Value}");
 
                             } while (_biConnected.Count > 0 && (edge.Key != node || edge.Value == _biConnected.Peek().Key));
-
-                            //Console.WriteLine($"}}");
                         }
                     }
 
@@ -96,12 +91,12 @@
             ReadInput();
             FindBiConnectedComponents(0, 1);
 
-            //foreach (var component in _components)
-            //{
-            //    Console.WriteLine($"{{{string.Join(", ", component)}}}");
-            //}
-
             Console.WriteLine($"Number of bi-connected components: {_components.Count}");
+
+            foreach (var component in _components)
+            {
+                Console.WriteLine($"{{{string.Join(", ", component)}}}");
+            }
         }
     }
 }
