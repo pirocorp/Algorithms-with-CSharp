@@ -71,13 +71,6 @@
                     }
                 }
             }
-        }
-
-        public static void Main()
-        {
-            ReadInput();
-            //SlowSolution();
-            FastSolution();
 
             BigInteger result = 0;
 
@@ -87,6 +80,13 @@
             }
 
             Console.WriteLine(result);
+        }
+
+        public static void Main()
+        {
+            ReadInput();
+            //SlowSolution();
+            FastSolution();
         }
     }
 }
