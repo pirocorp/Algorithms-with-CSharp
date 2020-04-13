@@ -44,6 +44,24 @@
             }
         }
 
+        private static int GetStockForSwap()
+        {
+            var possibleStocksForSwap = _stock
+                .Where(x => !_nextOrderIndex.ContainsKey(x) || _nextOrderIndex[x].Count == 0)
+                .ToArray();
+
+            if (possibleStocksForSwap.Length == 0)
+            {
+                possibleStocksForSwap = _nextOrderIndex
+                    .Where(x => _stock.Contains(x.Key))
+                    .OrderByDescending(x => x.Value.First.Value)
+                    .Select(x => x.Key)
+                    .ToArray();
+            }
+
+            return possibleStocksForSwap[0];
+        }
+
         private static void CalculateSwaps()
         {
             if (!_stock.Contains(_orders[0]))
@@ -65,24 +83,11 @@
                 }
 
                 _nextOrderIndex[currentOrder].RemoveFirst();
-
-                var swap = _nextOrderIndex
-                    .Where(x => x.Value.Count == 0)
-                    .Select(x => x.Key)
-                    .FirstOrDefault();
-
-                if (swap == 0)
-                {
-                    swap = _nextOrderIndex
-                        .Where(x => _stock.Contains(x.Key))
-                        .OrderByDescending(x => x.Value.First.Value)
-                        .First()
-                        .Key;
-                }
+                var stockSwap = GetStockForSwap();
+                _stock.Remove(stockSwap);
+                _stock.Add(currentOrder);
 
                 count++;
-                _stock.Remove(swap);
-                _stock.Add(currentOrder);
             }
 
             Console.WriteLine(count);
@@ -92,7 +97,6 @@
         {
             ReadInput();
             CalculateSwaps();
-
         }
     }
 }
