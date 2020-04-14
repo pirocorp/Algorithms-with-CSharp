@@ -112,12 +112,8 @@
             }
         }
 
-        public static void Main()
+        private static void PrintSolution()
         {
-            ReadInput();
-
-            FindStars();
-
             var totalStars = _starsCounts.Sum(x => x.Value);
 
             Console.WriteLine(totalStars);
@@ -126,6 +122,15 @@
             {
                 Console.WriteLine($"{star.Key} -> {star.Value}");
             }
+        }
+
+        public static void Main()
+        {
+            ReadInput();
+
+            FindStars();
+
+            PrintSolution();
         }
     }
 }
