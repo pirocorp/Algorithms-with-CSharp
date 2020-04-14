@@ -22,15 +22,8 @@
             }
         }
 
-        public static void Main()
+        private static List<string> ReplaceStarsWithVariationChars(List<string> variations, string inputString)
         {
-            var inputString = Console.ReadLine();
-            
-            var count = inputString.Count(x => x == '*');
-
-            var variations = new List<string>();
-            GenerateVariations(count, variations, string.Empty);
-
             var result = new List<string>();
 
             for (var i = 0; i < variations.Count; i++)
@@ -51,9 +44,28 @@
                 result.Add(new string(currentString.ToArray()));
             }
 
+            return result;
+        }
+
+        private static void MySolution()
+        {
+            var inputString = Console.ReadLine();
+
+            var count = inputString.Count(x => x == '*');
+
+            var variations = new List<string>();
+            GenerateVariations(count, variations, string.Empty);
+
+            var result = ReplaceStarsWithVariationChars(variations, inputString);
+
             result.Sort();
             Console.WriteLine(result.Count);
             Console.WriteLine(string.Join(Environment.NewLine, result));
+        }
+
+        public static void Main()
+        {
+            MySolution();
         }
     }
 }
