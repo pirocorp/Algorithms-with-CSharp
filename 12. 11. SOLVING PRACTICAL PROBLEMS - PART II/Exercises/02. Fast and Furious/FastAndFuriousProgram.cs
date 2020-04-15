@@ -132,6 +132,7 @@
                     if (newDistance < distances[otherNode])
                     {
                         distances[otherNode] = newDistance;
+
                         priorityQueue = new SortedSet<string>(priorityQueue,
                             Comparer<string>.Create((f, s) => distances[f].CompareTo(distances[s])));
                     }
@@ -149,8 +150,10 @@
             }
         }
 
-        private static void FindSpeedingPlates(List<string> result)
+        private static List<string> FindSpeedingPlates()
         {
+            var result = new List<string>();
+
             var currentRecords = new Dictionary<string, Record>();
 
             foreach (var record in _records)
@@ -166,6 +169,11 @@
                     for (var destination = origin + 1; destination < cameras.Length; destination++)
                     {
                         var destinationRecord = cameras[destination];
+
+                        if (!_timeDistances[originRecord.Town].ContainsKey(destinationRecord.Town))
+                        {
+                            continue;
+                        }
 
                         var minAllowedTime = _timeDistances[originRecord.Town][destinationRecord.Town];
                         var actualTime = originRecord.Time.GetHoursInterval(destinationRecord.Time);
@@ -189,6 +197,8 @@
                     }
                 }
             }
+
+            return result;
         }
 
         public static void Main()
@@ -198,9 +208,7 @@
 
             FindTimeDistances();
 
-            var result = new List<string>();
-
-            FindSpeedingPlates(result);
+            var result = FindSpeedingPlates();
 
             result = result.ToList();
             Console.WriteLine(string.Join(Environment.NewLine, result.OrderBy(x => x)));
