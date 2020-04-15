@@ -11,7 +11,7 @@
         private static List<Edge> _graph;
         private static Dictionary<string, List<Edge>> _nodesToEdges;
         private static Dictionary<string, Dictionary<string, decimal>> _timeDistances;
-        private static SortedSet<Record> _records;
+        private static Dictionary<string, SortedSet<Record>> _records;
 
         private static void ReadInputRoads()
         {
@@ -59,7 +59,7 @@
 
         private static void ReadInputRecords()
         {
-            _records = new SortedSet<Record>();
+            _records = new Dictionary<string, SortedSet<Record>>();
 
             var inputString = Console.ReadLine();
 
@@ -84,7 +84,12 @@
                 var newTime = new Time(hours, minutes, seconds);
                 var record = new Record(town, plate, newTime);
 
-                _records.Add(record);
+                if (!_records.ContainsKey(plate))
+                {
+                    _records[plate] = new SortedSet<Record>();
+                }
+
+                _records[plate].Add(record);
 
                 inputString = Console.ReadLine();
             }
@@ -144,6 +149,48 @@
             }
         }
 
+        private static void FindSpeedingPlates(List<string> result)
+        {
+            var currentRecords = new Dictionary<string, Record>();
+
+            foreach (var record in _records)
+            {
+                var plate = record.Key;
+                var cameras = record.Value.ToArray();
+
+                for (var origin = 0; origin < cameras.Length; origin++)
+                {
+                    var originRecord = cameras[origin];
+                    var isFound = false;
+
+                    for (var destination = origin + 1; destination < cameras.Length; destination++)
+                    {
+                        var destinationRecord = cameras[destination];
+
+                        var minAllowedTime = _timeDistances[originRecord.Town][destinationRecord.Town];
+                        var actualTime = originRecord.Time.GetHoursInterval(destinationRecord.Time);
+
+                        if (minAllowedTime == decimal.MaxValue)
+                        {
+                            continue;
+                        }
+
+                        if (actualTime < minAllowedTime)
+                        {
+                            result.Add(originRecord.Plate);
+                            isFound = true;
+                            break;
+                        }
+                    }
+
+                    if (isFound)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
         public static void Main()
         {
             ReadInputRoads();
@@ -153,35 +200,9 @@
 
             var result = new List<string>();
 
-            var currentRecords = new Dictionary<string, Record>();
+            FindSpeedingPlates(result);
 
-            foreach (var record in _records)
-            {
-                if (!currentRecords.ContainsKey(record.Plate))
-                {
-                    currentRecords[record.Plate] = record;
-                    continue;
-                }
-
-                var originRecord = currentRecords[record.Plate];
-                var destinationRecord = record;
-                currentRecords[record.Plate] = record;
-
-                var minAllowedTime = _timeDistances[originRecord.Town][destinationRecord.Town];
-                var actualTime = originRecord.Time.GetHoursInterval(destinationRecord.Time);
-
-                if (minAllowedTime == decimal.MaxValue)
-                {
-                    continue;
-                }
-
-                if (actualTime < minAllowedTime)
-                {
-                    result.Add(originRecord.Plate);
-                }
-            }
-
-            result = result.Distinct().ToList();
+            result = result.ToList();
             Console.WriteLine(string.Join(Environment.NewLine, result.OrderBy(x => x)));
         }
     }
