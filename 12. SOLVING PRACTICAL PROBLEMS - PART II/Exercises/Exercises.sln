@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Fast and Furious", "02. Fast and Furious\02. Fast and Furious.csproj", "{5E7D994B-C0E5-4B6E-86B4-36D81C5804B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02. Fast and Furious", "02. Fast and Furious\02. Fast and Furious.csproj", "{5E7D994B-C0E5-4B6E-86B4-36D81C5804B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Renewal", "03. Renewal\03. Renewal.csproj", "{4520392C-8FE5-4F77-B934-43003B5251E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. Renewal", "03. Renewal\03. Renewal.csproj", "{4520392C-8FE5-4F77-B934-43003B5251E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Shelter", "01. Shelter\01. Shelter.csproj", "{E95EE3A7-B541-4383-950F-CFDD51FE8C27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4520392C-8FE5-4F77-B934-43003B5251E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4520392C-8FE5-4F77-B934-43003B5251E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4520392C-8FE5-4F77-B934-43003B5251E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E95EE3A7-B541-4383-950F-CFDD51FE8C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95EE3A7-B541-4383-950F-CFDD51FE8C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95EE3A7-B541-4383-950F-CFDD51FE8C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95EE3A7-B541-4383-950F-CFDD51FE8C27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
