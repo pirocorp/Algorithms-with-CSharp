@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Medenka", "01. Medenka\01. Medenka.csproj", "{1F835D43-80FA-4CC4-91C9-327A0DB99727}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Sticks", "03. Sticks\03. Sticks.csproj", "{A97ECCA6-4B8F-4FAF-B86E-931BEEA5C6C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Robbery", "04. Robbery\04. Robbery.csproj", "{B45A0827-3D9E-41F9-9BA5-38AF37F525E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{1F835D43-80FA-4CC4-91C9-327A0DB99727}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F835D43-80FA-4CC4-91C9-327A0DB99727}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F835D43-80FA-4CC4-91C9-327A0DB99727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A97ECCA6-4B8F-4FAF-B86E-931BEEA5C6C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A97ECCA6-4B8F-4FAF-B86E-931BEEA5C6C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A97ECCA6-4B8F-4FAF-B86E-931BEEA5C6C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A97ECCA6-4B8F-4FAF-B86E-931BEEA5C6C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B45A0827-3D9E-41F9-9BA5-38AF37F525E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B45A0827-3D9E-41F9-9BA5-38AF37F525E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B45A0827-3D9E-41F9-9BA5-38AF37F525E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B45A0827-3D9E-41F9-9BA5-38AF37F525E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
