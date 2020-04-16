@@ -6,21 +6,21 @@
 
     public static class SticksProgram
     {
-        private static SortedDictionary<int, List<int>> _graph;
-        private static SortedDictionary<int, List<int>> _parents; //Reversed graph
+        private static SortedDictionary<int, HashSet<int>> _graph;
+        private static SortedDictionary<int, HashSet<int>> _parents; //Reversed graph
         
         private static void ReadInput()
         {
-            _graph = new SortedDictionary<int, List<int>>();
-            _parents = new SortedDictionary<int, List<int>>();
+            _graph = new SortedDictionary<int, HashSet<int>>();
+            _parents = new SortedDictionary<int, HashSet<int>>();
 
             var vertexCount = int.Parse(Console.ReadLine());
             var edgeCount = int.Parse(Console.ReadLine());
 
             for (var i = 0; i < vertexCount; i++)
             {
-                _graph[i] = new List<int>();
-                _parents[i] = new List<int>();
+                _graph[i] = new HashSet<int>();
+                _parents[i] = new HashSet<int>();
             }
 
             for (var i = 0; i < edgeCount; i++)
