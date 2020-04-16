@@ -92,7 +92,14 @@
                 .Distinct()
                 .ToArray();
 
-            var parents = new int[nodes.Length];
+            var max = nodes.Length;
+
+            if (max != 0)
+            {
+                max = nodes.Max() + 1;
+            }
+
+            var parents = new int[max];
 
             //Set parent of node -> node
             foreach (var node in nodes)
