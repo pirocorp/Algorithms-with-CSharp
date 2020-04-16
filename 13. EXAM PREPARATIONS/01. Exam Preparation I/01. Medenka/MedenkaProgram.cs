@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
 
     public static class MedenkaProgram
     {
@@ -54,28 +55,77 @@
             Generate(possiblePipeLocations, 0, medenka);
         }
 
-        public static void Main()
+        private static int GetNuts(string medenka)
         {
-            MySolution();
+            var nuts = 0;
 
-            var medenka = Console.ReadLine();
+            for (var i = 0; i < medenka.Length; i++)
+            {
+                if (medenka[i] == '1')
+                {
+                    nuts++;
+                }
+            }
 
-            var result = new List<string>();
-
-            var start = medenka.IndexOf('1');
-            GenerateCuts(start, medenka, result);
+            return nuts;
         }
 
-        private static void GenerateCuts(int start, string medenka, List<string> result)
+        private static void Print(string medenka, List<int> indexes)
         {
-            if (start >= medenka.Length)
+            var sb = new StringBuilder();
+
+            for (int i = medenka.Length - 1; i >= 0; i--)
             {
-                //Print
+                if (indexes.Contains(i))
+                {
+                    sb.Append('|');
+                }
+
+                sb.Append(medenka[i]);
+            }
+
+            var result = new string(sb.ToString().Reverse().ToArray());
+            Console.WriteLine(result);
+        }
+
+        private static void GenerateCuts(int start, int cuts, int nuts,
+            string medenka, List<int> indexes)
+        {
+            if (cuts == nuts - 1)
+            {
+                Print(medenka, indexes);
             }
             else
             {
-                var end = medenka.LastIndexOf('1', start + 1);
+                var end = medenka.IndexOf('1', start + 1);
+
+                for (var i = start; i < end; i++)
+                {
+                    indexes.Add(i);
+
+                    GenerateCuts(end, cuts + 1, nuts, medenka, indexes);
+                    indexes.RemoveAt(indexes.Count - 1);
+                }
             }
+        }
+
+        private static void OtherSolution()
+        {
+            var medenka = string.Join("", Console.ReadLine().Split(' '));
+
+            var result = new List<int>();
+
+            var start = medenka.IndexOf('1');
+            var nuts = GetNuts(medenka);
+
+            GenerateCuts(start, 0, nuts, medenka, result);
+        }
+
+        public static void Main()
+        {
+            //MySolution();
+
+            OtherSolution();
         }
     }
 }
