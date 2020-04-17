@@ -7,11 +7,19 @@
     {
         private readonly Dictionary<T, int> _searchCollection;
         private readonly List<T> _heap;
+        private readonly IComparer<T> _comparer;
 
         public PriorityQueue()
         {
             this._heap = new List<T>();
             this._searchCollection = new Dictionary<T, int>();
+            this._comparer = Comparer<T>.Create((x, y) => x.CompareTo(y));
+        }
+
+        public PriorityQueue(IComparer<T> comparer)
+            : this()
+        {
+            this._comparer = comparer;
         }
 
         public int Count => this._heap.Count;
@@ -73,13 +81,13 @@
             var smallest = i;
 
             if (left < this._heap.Count
-                && this._heap[left].CompareTo(this._heap[smallest]) < 0)
+                && this._comparer.Compare(this._heap[left], this._heap[smallest]) < 0)
             {
                 smallest = left;
             }
 
             if (right < this._heap.Count
-                && this._heap[right].CompareTo(this._heap[smallest]) < 0)
+                && this._comparer.Compare(this._heap[right], this._heap[smallest]) < 0)
             {
                 smallest = right;
             }
@@ -95,7 +103,7 @@
         {
             var parent = (i - 1) / 2;
 
-            while (i > 0 && this._heap[i].CompareTo(this._heap[parent]) < 0)
+            while (i > 0 && this._comparer.Compare(this._heap[i], this._heap[parent]) < 0)
             {
                 this.Swap(i, parent);
 

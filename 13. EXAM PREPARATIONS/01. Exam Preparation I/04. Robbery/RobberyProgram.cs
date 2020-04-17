@@ -17,6 +17,8 @@
         private static bool[] _visited;
         private static int[] _stepsTo;
 
+        private static PriorityQueue<int> _priorityQueue;
+
         private static void ReadInput()
         {
             _colors = Console.ReadLine()
@@ -56,19 +58,9 @@
 
         private static int GetCurrentVertex()
         {
-            var vertex = -1;
-            var lowestDistance = int.MaxValue;
+            var min = _priorityQueue.ExtractMin();
 
-            for (var index = 0; index < _distanceTo.Length; index++)
-            {
-                if (!_visited[index] && _distanceTo[index] < lowestDistance)
-                {
-                    vertex = index;
-                    lowestDistance = _distanceTo[index];
-                }
-            }
-
-            return vertex;
+            return min;
         }
 
         private static void VisitVertex(int vertex)
@@ -77,6 +69,11 @@
 
             foreach (var edge in _graph[vertex])
             {
+                if (_distanceTo[edge.To] == int.MaxValue)
+                {
+                    _priorityQueue.Enqueue(edge.To);
+                }
+
                 var steps = _stepsTo[vertex];
                 var color = steps % 2 == 0 ? _colors[edge.To] : !_colors[edge.To];
                 var weightCost = color ? 0 : _weightCost;
@@ -87,6 +84,8 @@
                     var additionalStep = color ? 0 : 1;
                     _distanceTo[edge.To] = distance;
                     _stepsTo[edge.To] = steps + 1 + additionalStep;
+
+                    _priorityQueue.DecreaseKey(edge.To);
                 }
             }
         }
@@ -96,8 +95,11 @@
             _distanceTo = Enumerable.Repeat(int.MaxValue, _graph.Length).ToArray();
             _visited = new bool[_graph.Length];
             _stepsTo = new int[_graph.Length];
+            _priorityQueue = new PriorityQueue<int>(Comparer<int>
+                .Create((f, s) => _distanceTo[f].CompareTo(_distanceTo[s])));
             
             _distanceTo[_start] = 0;
+            _priorityQueue.Enqueue(_start);
 
             var vertex = GetCurrentVertex();
 

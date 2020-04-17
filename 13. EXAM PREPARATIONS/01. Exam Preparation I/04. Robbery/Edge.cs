@@ -9,11 +9,11 @@
             this.Weight = weight;
         }
 
-        public int From { get; set; }
+        public int From { get; }
 
-        public int To { get; set; }
+        public int To { get; }
 
-        public int Weight { get; set; }
+        public int Weight { get; }
 
         public override string ToString()
         {
