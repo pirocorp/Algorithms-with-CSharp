@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Bridges", "02. Bridges\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Message Sharing", "03. Message Sharing\03. Message Sharing.csproj", "{C0EEFD5E-E41C-43A4-A429-FF269E96D1ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Rectangles", "04. Rectangles\04. Rectangles.csproj", "{5948CDF0-9DA8-45B7-AA5D-2FEA8782AD79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C0EEFD5E-E41C-43A4-A429-FF269E96D1ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0EEFD5E-E41C-43A4-A429-FF269E96D1ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0EEFD5E-E41C-43A4-A429-FF269E96D1ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5948CDF0-9DA8-45B7-AA5D-2FEA8782AD79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5948CDF0-9DA8-45B7-AA5D-2FEA8782AD79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5948CDF0-9DA8-45B7-AA5D-2FEA8782AD79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5948CDF0-9DA8-45B7-AA5D-2FEA8782AD79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
