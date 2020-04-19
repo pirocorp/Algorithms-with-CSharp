@@ -67,7 +67,7 @@
                         //Alphabetical Order
                         if (maxLen == prevSolutionLength + 1)
                         {
-                            if (_rectAngles[prev].Name.CompareTo(_rectAngles[prevIndex].Name) > 0)
+                            if (string.Compare(_rectAngles[prev].Name, _rectAngles[prevIndex].Name, StringComparison.InvariantCulture) > 0)
                             {
                                 prev = prevIndex;
                             }
@@ -122,15 +122,8 @@
 
         public static void Main()
         {
-            //LongestNestedSubSequenceSolution();
-            ReadInput();
-
-            var rect = _rectAngles.FirstOrDefault(x => x.Name == "rect45630");
-
-            foreach (var rectAngle in _rectAngles)
-            {
-                Console.WriteLine($"{rect.Name} {(rect.isNested(rectAngle) ? "Nested" : "Not Nested")} {rectAngle.Name}");
-            }
+            LongestNestedSubSequenceSolution();
+            
         }
     }
 }
