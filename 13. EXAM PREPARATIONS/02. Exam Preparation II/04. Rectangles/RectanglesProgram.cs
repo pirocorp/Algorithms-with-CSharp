@@ -11,8 +11,6 @@
         private static int[] _lns;
         private static int[] _prev;
 
-        private static Dictionary<RectAngle, RectAngle> _bestNested;
-
         private static void ReadInput()
         {
             _rectAngles = new List<RectAngle>();
@@ -124,12 +122,12 @@
 
         public static void FindNestedRectangles(RectAngle rect)
         {
-            RectAngle bestNested = null;
-
-            if (_bestNested.ContainsKey(rect))
+            if (rect.Depth > 0)
             {
                 return;
             }
+
+            RectAngle bestNested = null;
 
             for (var i = 0; i < _rectAngles.Count; i++)
             {
@@ -152,13 +150,10 @@
 
             rect.Depth = (bestNested?.Depth ?? 0) + 1;
             rect.Nested = bestNested;
-            _bestNested.Add(rect, bestNested);
         }
 
         private static void RecursiveSolution()
         {
-            _bestNested = new Dictionary<RectAngle, RectAngle>();
-
             for (var i = 0; i < _rectAngles.Count; i++)
             {
                 var rect = _rectAngles[i];
