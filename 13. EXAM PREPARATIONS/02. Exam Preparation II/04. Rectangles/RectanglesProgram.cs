@@ -11,6 +11,8 @@
         private static int[] _lns;
         private static int[] _prev;
 
+        private static Dictionary<RectAngle, RectAngle> _bestNested;
+
         private static void ReadInput()
         {
             _rectAngles = new List<RectAngle>();
@@ -120,10 +122,72 @@
             Console.WriteLine(result);
         }
 
+        public static void FindNestedRectangles(RectAngle rect)
+        {
+            RectAngle bestNested = null;
+
+            if (_bestNested.ContainsKey(rect))
+            {
+                return;
+            }
+
+            for (var i = 0; i < _rectAngles.Count; i++)
+            {
+                var other = _rectAngles[i];
+
+                if (rect.isNested(other) && other != rect)
+                {
+                    FindNestedRectangles(other);
+
+                    //CompareTo is cultureSpecific
+                    if (bestNested == null
+                        || other.Depth > bestNested.Depth
+                        || other.Depth == bestNested.Depth
+                        && string.Compare(other.Name, bestNested.Name, StringComparison.InvariantCulture) < 0)
+                    {
+                        bestNested = other;
+                    }
+                }
+            }
+
+            rect.Depth = (bestNested?.Depth ?? 0) + 1;
+            rect.Nested = bestNested;
+            _bestNested.Add(rect, bestNested);
+        }
+
+        private static void RecursiveSolution()
+        {
+            _bestNested = new Dictionary<RectAngle, RectAngle>();
+
+            for (var i = 0; i < _rectAngles.Count; i++)
+            {
+                var rect = _rectAngles[i];
+                FindNestedRectangles(rect);
+            }
+
+            var best = _rectAngles
+                .OrderByDescending(x => x.Depth)
+                .ThenBy(x => x.Name)
+                .First();
+
+            var result = new List<RectAngle>();
+
+            while (best != null)
+            {
+                result.Add(best);
+                best = best.Nested;
+            }
+
+            Console.WriteLine(string.Join(" < ", result.Select(x => x.Name)));
+        }
+
         public static void Main()
         {
-            LongestNestedSubSequenceSolution();
+            //LongestNestedSubSequenceSolution();
             
+            ReadInput();
+
+            RecursiveSolution();
         }
     }
 }

@@ -11,6 +11,7 @@
             this.Y1 = y1;
             this.X2 = x2;
             this.Y2 = y2;
+            this.Depth = 0;
         }
 
         public string Name { get; }
@@ -24,6 +25,10 @@
         public int Y2 { get; }
 
         public int Size => Math.Abs(this.X1 - this.X2) * Math.Abs(this.Y1 - this.Y2);
+
+        public int Depth { get; set; }
+
+        public RectAngle Nested { get; set; }
 
         public bool isNested(RectAngle other)
         {
