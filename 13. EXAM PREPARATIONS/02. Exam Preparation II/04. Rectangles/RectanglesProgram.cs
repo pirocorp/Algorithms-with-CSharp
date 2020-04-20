@@ -152,14 +152,44 @@
             rect.Nested = bestNested;
         }
 
-        private static void RecursiveSolution()
+        public static void SweepAndPrune(RectAngle rect, int index)
         {
-            for (var i = 0; i < _rectAngles.Count; i++)
+            if (rect.Depth > 0)
             {
-                var rect = _rectAngles[i];
-                FindNestedRectangles(rect);
+                return;
             }
 
+            RectAngle bestNested = null;
+
+            for (var i = index + 1; i < _rectAngles.Count; i++)
+            {
+                var other = _rectAngles[i];
+
+                if (other.X1 > rect.X2)
+                {
+                    break;
+                }
+
+                if (rect.isNested(other))
+                {
+                    SweepAndPrune(other, i);
+
+                    if (bestNested == null
+                        || other.Depth > bestNested.Depth
+                        || other.Depth == bestNested.Depth
+                        && string.Compare(other.Name, bestNested.Name, StringComparison.InvariantCulture) < 0)
+                    {
+                        bestNested = other;
+                    }
+                }
+            }
+
+            rect.Depth = (bestNested?.Depth ?? 0) + 1;
+            rect.Nested = bestNested;
+        }
+
+        private static void PrintResult()
+        {
             var best = _rectAngles
                 .OrderByDescending(x => x.Depth)
                 .ThenBy(x => x.Name)
@@ -176,13 +206,44 @@
             Console.WriteLine(string.Join(" < ", result.Select(x => x.Name)));
         }
 
+        private static void RecursiveSolution()
+        {
+            ReadInput();
+
+            for (var i = 0; i < _rectAngles.Count; i++)
+            {
+                var rect = _rectAngles[i];
+                FindNestedRectangles(rect);
+            }
+
+            PrintResult();
+        }
+
+        private static void SweepAndPruneSolution()
+        {
+            ReadInput();
+
+            _rectAngles = _rectAngles
+                .OrderBy(x => x.X1)
+                .ThenByDescending(x => x.X2)
+                .ThenByDescending(y => y.Y1)
+                .ThenBy(y => y.Y2)
+                .ToList();
+
+            for (var i = 0; i < _rectAngles.Count; i++)
+            {
+                var rect = _rectAngles[i];
+                SweepAndPrune(rect, i);
+            }
+
+            PrintResult();
+        }
+
         public static void Main()
         {
             //LongestNestedSubSequenceSolution();
-            
-            ReadInput();
-
-            RecursiveSolution();
+            //RecursiveSolution();
+            SweepAndPruneSolution();
         }
     }
 }
