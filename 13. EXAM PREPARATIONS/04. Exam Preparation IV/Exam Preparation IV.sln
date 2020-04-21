@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Sowing", "01. Sowing\01
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Stability Check", "02. Stability Check\02. Stability Check.csproj", "{BA84950E-B1CF-4C9E-967F-99358E46EA48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Evacuation", "03. Evacuation\03. Evacuation.csproj", "{B6F24436-6E2B-46A9-9600-79762BB5C768}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BA84950E-B1CF-4C9E-967F-99358E46EA48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA84950E-B1CF-4C9E-967F-99358E46EA48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA84950E-B1CF-4C9E-967F-99358E46EA48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6F24436-6E2B-46A9-9600-79762BB5C768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6F24436-6E2B-46A9-9600-79762BB5C768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6F24436-6E2B-46A9-9600-79762BB5C768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6F24436-6E2B-46A9-9600-79762BB5C768}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
