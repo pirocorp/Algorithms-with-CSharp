@@ -10,13 +10,20 @@
         private static bool[] _visited;
 
         private static string _targetString;
-        private static List<List<string>> _results;
+        private static HashSet<string> _results;
 
         private static void Generate(string currentTarget, LinkedList<string> currentResult)
         {
             if (currentTarget.Length == 0)
             {
-                _results.Add(currentResult.ToList());
+                var permutation = string.Join(" ", currentResult);
+
+                if (!_results.Contains(permutation))
+                {
+                    _results.Add(permutation);
+                    Console.WriteLine(permutation);
+                }
+
                 return;
             }
 
@@ -49,15 +56,9 @@
 
             _targetString = Console.ReadLine();
 
-            _results = new List<List<string>>();
+            _results = new HashSet<string>();
 
             Generate(_targetString, new LinkedList<string>());
-
-            _results
-                .Select(x => string.Join(" ", x))
-                .Distinct()
-                .ToList()
-                .ForEach(Console.WriteLine);
         }
     }
 }
