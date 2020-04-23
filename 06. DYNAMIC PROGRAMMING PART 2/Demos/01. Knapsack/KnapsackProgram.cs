@@ -56,12 +56,14 @@
 
                 for (int capacity = 0; capacity <= _maxCapacity; capacity++)
                 {
+					int excluding = _prices[rowIndex - 1, capacity];
+					
                     if (item.Weight > capacity)
                     {
+						_prices[rowIndex, capacity] = excluding;
                         continue;
                     }
-
-                    int excluding = _prices[rowIndex - 1, capacity];
+                    
                     int including = item.Price + _prices[rowIndex - 1, capacity - item.Weight];
 
                     if (including > excluding)
