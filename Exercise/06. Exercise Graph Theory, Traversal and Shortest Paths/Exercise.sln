@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Distance Between Vertices", "01. Distance Between Vertices\01. Distance Between Vertices.csproj", "{B48546EF-21EB-4674-9BEB-409221484AFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Areas in Matrix", "02. Areas in Matrix\02. Areas in Matrix.csproj", "{7DE947B8-7450-4A1C-8853-099255F27C4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Cycles in Graph", "03. Cycles in Graph\03. Cycles in Graph.csproj", "{68748AE0-DA30-4BEB-832D-29BF02779A46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B48546EF-21EB-4674-9BEB-409221484AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B48546EF-21EB-4674-9BEB-409221484AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B48546EF-21EB-4674-9BEB-409221484AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B48546EF-21EB-4674-9BEB-409221484AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DE947B8-7450-4A1C-8853-099255F27C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DE947B8-7450-4A1C-8853-099255F27C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DE947B8-7450-4A1C-8853-099255F27C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE947B8-7450-4A1C-8853-099255F27C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68748AE0-DA30-4BEB-832D-29BF02779A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68748AE0-DA30-4BEB-832D-29BF02779A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68748AE0-DA30-4BEB-832D-29BF02779A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68748AE0-DA30-4BEB-832D-29BF02779A46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F17CE30-057E-47BD-BA37-239A98B2B931}
+	EndGlobalSection
+EndGlobal
